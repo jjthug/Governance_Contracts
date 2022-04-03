@@ -21,19 +21,21 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  */
  module.exports = {
   defaultNetwork: "hardhat",
-  solidity: "0.8.10",
-  settings: {
+  solidity: {
+    version:"0.8.12",
+    settings: {
     optimizer: {
-      runs: 200,
-      enabled: true
+      enabled: true,
+      runs: 200
     }
-  },
+  }
+},
   networks: {
     hardhat: {
     },
-    rinkeby:{
-      url: secret.urlRopsten,
-      accounts: [secret.privateKey1]
-    }
+    // rinkeby:{
+    //   url: secret.url,
+    //   accounts: [secret.owner]
+    // }
   }
 };

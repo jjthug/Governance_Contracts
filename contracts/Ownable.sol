@@ -12,7 +12,12 @@ contract Context {
 }
 
 contract Ownable is Context {
+
     address public _owner;
+
+    // Admin
+    address public admin;
+    bool public isAdminAuthorized;
 
     event OwnershipTransferred(
         address indexed previousOwner,
@@ -33,6 +38,14 @@ contract Ownable is Context {
      */
     function owner() public view returns (address) {
         return _owner;
+    }
+
+    /**
+     * Modifier that checks if the msg.sender is the owner or admin (if admin is authorized)
+     */
+    modifier onlyOwnerOrAdmin() {
+        require(owner() == _msgSender() || (isAdminAuthorized && admin != address(0) && admin == _msgSender()), "Ownable: caller is not the owner nor admin, or admin is unauthorized");
+        _;
     }
 
     /**

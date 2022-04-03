@@ -3,7 +3,9 @@ node_modules
 coverage
 coverage.json
 typechain
+extra contracts
 
 #Hardhat files
 cache
 artifacts
+secret.json

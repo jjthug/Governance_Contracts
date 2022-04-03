@@ -16,13 +16,13 @@ async function main() {
   // We get the contract to deploy
   const Governance = await hre.ethers.getContractFactory("Governance");
 
-  // const governance = await Governance.deploy("0x74D4163f4d5B4D435BD44FBbE03Aad92daAF240f");
-  const governance = await Governance.attach("0x3845c6857e6EbD654b6e38F2248dFa5364A706CB");
-  await governance.transferOwnership("0xc0A0aEa4f8457Caa8C47ED5B5DA410E40EFCbf3c");
+  const governance = await Governance.deploy("0xc0A0aEa4f8457Caa8C47ED5B5DA410E40EFCbf3c");
+  // const governance = await Governance.attach("0x3845c6857e6EbD654b6e38F2248dFa5364A706CB");
+  // await governance.transferOwnership("0xc0A0aEa4f8457Caa8C47ED5B5DA410E40EFCbf3c");
 
-  // await governance.deployed();
+  await governance.deployed();
 
-  // console.log("Governance deployed to:", governance.address);
+  console.log("Governance deployed to:", governance.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
